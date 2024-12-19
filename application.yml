@@ -1,0 +1,53 @@
+application:
+  servers:
+    qa: https://alpura-qa-back.advisoryservicesg.tech/asignacion
+    uat: https:///asignacion
+    prod: https:///asignacion
+  title: Api de Asignacion
+  description: |
+    - **Tecnologías:** Java 17 / Spring Boot 3.1.3
+    - **Correo:** correo@alpura.com
+  version: 1.0.1
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://keycloak.advisoryservicesg.tech/auth/realms/ASIGNACION
+          jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
+
+jwt:
+  auth:
+    converter:
+      resource-id: ${KEY_CLOAK_RESOURCE:asignacion_cliente}
+      principal-attribute: preferred_username
+
+springdoc:
+  api-docs:
+    path: /api-docs
+    enabled: true
+  swagger-ui:
+    path: /api-docs.html
+    enabled: true
+    filter: true
+  paths-to-exclude: /error
+  override-with-generic-response: false
+
+logging:
+  level:
+    root: INFO
+    mx.com.gnp.aplicacion: INFO
+
+connexion:
+  databases:
+    - name: svd
+      url: jdbc:postgresql://35.208.209.200:5432/alpuradb
+      username: postgres
+      password: ecosistema
+      driver-class-name: org.postgresql.Driver
+    - name: facturacion
+      url: jdbc:postgresql://35.208.209.200:5432/alpurafacturacion2
+      username: postgres
+      password: ecosistema
+      driver-class-name: org.postgresql.Driver
