@@ -51,3 +51,8 @@ connexion:
       username: postgres
       password: ecosistema
       driver-class-name: org.postgresql.Driver
+    - name: sppd
+      url: jdbc:postgresql://35.208.209.200:5432/sppd
+      username: postgres
+      password: ecosistema
+      driver-class-name: org.postgresql.Driver
