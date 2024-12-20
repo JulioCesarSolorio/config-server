@@ -38,7 +38,13 @@ logging:
   level:
     root: INFO
     mx.com.gnp.aplicacion: INFO
-
+    
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        
 connexion:
   databases:
     - name: svd
@@ -48,6 +54,11 @@ connexion:
       driver-class-name: org.postgresql.Driver
     - name: facturacion
       url: jdbc:postgresql://35.208.209.200:5432/alpurafacturacion2
+      username: postgres
+      password: ecosistema
+      driver-class-name: org.postgresql.Driver
+    - name: sppd
+      url: jdbc:postgresql://35.208.209.200:5432/sppd
       username: postgres
       password: ecosistema
       driver-class-name: org.postgresql.Driver
