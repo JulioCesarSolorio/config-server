@@ -10,6 +10,13 @@ application:
   version: 1.0.1
 
 spring:
+  cloud:
+    gcp:
+      pubsub:
+        enabled: true
+      project-id: qa-alpura
+      credentials:
+        location: classpath:qa-alpura-facturacion.json
   security:
     oauth2:
       resourceserver:
