@@ -38,6 +38,22 @@ logging:
   level:
     root: INFO
     mx.com.gnp.aplicacion: INFO
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    health:
+      show-details: always
+
+alpura:
+  pubsub:
+    topic: consulta
+    subscription: consulta-sub
+    topic-r: respuesta
+    subscription-r: respuesta-sub
+  project-id: qa-alpura
         
 connexion:
   databases:
